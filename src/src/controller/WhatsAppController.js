@@ -3,6 +3,7 @@ class WhatsAppController {
         this.whatsapp = new WhatsApp();
         this.loadElements();
         this.elementsPrototype();
+        this.initEvents();
     }
 
     loadElements() {
@@ -71,6 +72,47 @@ class WhatsAppController {
             this.innerHTML = html;
             return this;
         }
+    }
+
+    initEvents() {
+        this.el.myPhoto.on('click', () => {
+
+            this.closeAllLeftPanel();
+            this.el.panelEditProfile.show();
+            setTimeout(() => {
+                this.el.panelEditProfile.addClass('open');
+            }, 300);
+        });
+
+        this.el.btnNewContact.on('click', () => {
+
+            this.closeAllLeftPanel();
+            this.el.panelAddContact.show();
+            setTimeout(() => {
+                this.el.panelAddConßtact.addClass('open');
+            }, 300);
+        });
+
+        this.el.btnClosePanelEditProfile.on('click', () => {
+            this.el.panelEditProfile.removeClass('open');
+        });
+
+        this.el.btnClosePanelAddContact.on('click', () => {
+            this.el.panelAddContact.removeClass('open');
+        });
+
+        this.el.btnClosePanelAddContact.on('click', () => {
+            this.el.panelAddContact.removeClass('open');
+        });
+
+
+
+
+    }
+
+    closeAllLeftPanel() {
+        this.el.panelEditProfile.hide();
+        this.el.panelAddContact.hide();
     }
 }
 
