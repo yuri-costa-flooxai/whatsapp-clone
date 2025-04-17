@@ -208,7 +208,7 @@ class WhatsAppController {
 
         this._recordMicrophoneInterval = setInterval(() => {
 
-            this.el.recordMicrophoneTimer.innerHTML = (Date.now() - start);
+            this.el.recordMicrophoneTimer.innerHTML = Format.toTime(Date.now() - start);
         }, 1000);
     }
 
@@ -219,7 +219,7 @@ class WhatsAppController {
         clearInterval(this._recordMicrophoneInterval);
     }
 
-    closeMenuAttach(e) {
+    closeMenuAttach(e) {    
 
         document.removeEventListener('click', this.closeMenuAttach.bind(this));
         this.el.menuAttach.removeClass('open');
