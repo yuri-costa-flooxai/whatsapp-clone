@@ -199,7 +199,67 @@ class WhatsAppController {
 
             this.closeRecordMicrophone();
         });
-                 
+
+        this.el.inputText.on('keypress', (e) => {
+
+            if (e.key === 'Enter') {
+
+                e.preventDefault();
+                this.el.btnSend.click();
+            }
+        });
+
+        this.el.inputText.on('keyup', (e) => {
+
+            if (this.el.inputText.value.innerHTML.length) {
+
+                this.el.inputPlaceholder.hide();
+                this.el.btnSendMicrophone.hide();
+                this.el.btnSend.show();
+            } else {
+
+                this.el.inputPlaceholder.show();
+                this.el.btnSendMicrophone.show();
+                this.el.btnSend.hide();
+            }
+        });
+
+        this.el.btnSend.on('click', () => {
+
+            console.log(this.el.inputText.value.innerHTML);
+        });
+        
+        this.el.btnEmojis.on('click', () => {
+
+            this.el.panelEmojis.toggleClass('open');
+        });
+
+        this.el.panelEmojis.on('change', () => {
+
+            this.el.inputEmojis.querySelectorAll('.emoji').forEach(emoji => {
+
+                emoji.on('click', () => {
+
+                    this.el.inputEmojis.value.innerHTML += emoji.innerHTML;
+                    let img = this.el.imgEmojiDefault.cloneNode();
+                    img.style.cssText = emoji.style.cssText;
+                    img.dataset.unicode = emoji.dataset.unicode;
+                    img.alt = emoji.dataset.unicode;
+
+                    img.classList.forEach(className => {
+                        emoji.classList.add(className);
+                    });
+
+                    this.el.inputText.appendChild(img);
+
+                    this.el.inputText.dispatchEvent(new Event('keyup'));
+                });
+            });
+        });
+
+        this.el.imgEmojiDefault
+
+                
     }
 
     startRecordMicrophoneTimer() {
