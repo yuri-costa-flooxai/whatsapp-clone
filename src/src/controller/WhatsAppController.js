@@ -105,8 +105,29 @@ class WhatsAppController {
             this.el.panelAddContact.removeClass('open');
         });
 
+        this.el.photoContainerEditProfile.on('click', () => {
+            this.el.photoEditProfile.click();
+        });
 
+        this.el.photoEditProfile.on('change', () => {
+            this.el.photoEditProfile.click();
+        });
 
+        this.el.inputNameEditProfile.on('keypress', (e) => {
+            if (e.key === 'Enter') {
+
+                e.preventDefault();
+                this.el.btnSaveEditProfile.click();
+            }
+        });
+
+        this.el.btnSavePanelEditProfile.on('click', () => {
+            console.log(this.el.inputNameEditProfile);
+        });
+        
+        
+        
+        
 
     }
 
