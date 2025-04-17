@@ -1,0 +1,23 @@
+{
+  "name": "zapzap",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/yuri-costa-flooxai/whatsapp-clone.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/yuri-costa-flooxai/whatsapp-clone/issues"
+  },
+  "homepage": "https://github.com/yuri-costa-flooxai/whatsapp-clone#readme",
+  "description": "",
+  "dependencies": {
+    "webpack": "^5.99.5",
+    "webpack-dev-server": "^5.2.1"
+  }
+}
